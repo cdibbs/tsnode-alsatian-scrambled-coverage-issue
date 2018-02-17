@@ -1,0 +1,39 @@
+{
+  "name": "tsnode-issue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precover": "rimraf ./coverage/*",
+    "cover": "nyc npm run unittest",
+    "unittest": "ts-node test-runner.ts"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "alsatian": "^2.2.1",
+    "nyc": "^11.4.1",
+    "rimraf": "^2.6.2",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.7.2"
+  },
+  "nyc": {
+    "include": [
+      "**"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "test-runner.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "all": true
+  }
+}
